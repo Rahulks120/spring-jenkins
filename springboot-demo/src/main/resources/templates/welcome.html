@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Welcome </h1>
+<h1><span th:text="${name}"></span></h1>
+<h1>Your Password :<span th:text="${pass}">Guest</span></h1>
+<a th:href="@{/todo-list}">View Todo List</a>
+</body>
+</html>

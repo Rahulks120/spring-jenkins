@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049; /* Darker green */
+        }
+    </style>
+</head>
+<body>
+<h1>Hello <span th:text="${name}"></span></h1>
+<hr>
+<h1>Todo List</h1>
+
+<a th:href="@{/add-todo}" class="button">Add Todo</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Description</th>
+        <th>Target Date</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="todo : ${todos}">
+        <td th:text="${todo.username}"></td>
+        <td th:text="${todo.description}"></td>
+        <td th:text="${todo.targetDate}"></td>
+        <td>
+            <a th:href="@{/delete-todo/{id}(id=${todo.id})}" class="button" style="background-color: red;">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
